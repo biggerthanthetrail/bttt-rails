@@ -384,6 +384,8 @@ $spacing-limit          : 10 !default;
 
 .bh-image {
   @include position(absolute, -50px 0 0 0);
+  background-image: image-url('ice_age50_nordic1.jpg');
+  opacity: 0.29;
   max-height: 865px;
   z-index: 1;
   background-size: cover;
@@ -393,9 +395,6 @@ $spacing-limit          : 10 !default;
 }
 
 .luminosity {
-  background-blend-mode: saturation;
-  background-image: linear-gradient(to bottom, black 0%,white 50%);
-  opacity: .19;
 }
 
 // Visible only on mobile

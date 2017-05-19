@@ -17,68 +17,16 @@ body {
   position: relative;
   z-index: 2;
 }
-@font-face {
-  font-family: 'Nathaniel';
-  src: url('/fonts/Nathaniel.ttf') format('truetype');
-}
-
-// .default-neat-grid {
-//   @include grid-container;
-// }
-
-// .default-neat-grid__a-single-column {
-//   @include grid-column(4);
-//   height: 100px;
-//   background-image: linear-gradient(to bottom right, #21e9f4, #00d4ff);
-//   color: #fff;
-// }
-
-
-// $my-custom-grid: (
-//   columns: 3,
-//   gutter: 3rem,
-// );
-// .my-custom-grid {
-//   @include grid-container;
-// }
-
-// .custom-neat-column {
-//   @include grid-column(1, $my-custom-grid);
-//   height: 100px;
-//   background-image: linear-gradient(to bottom right, #21e9f4, #00d4ff);
-//   color: #fff;
-// }
 
 .outer-container {
-  text-shadow: 4px 4px 14px rgba(0,0,0,0.50);
+  // text-shadow: 4px 4px 14px rgba(0,0,0,0.50);
   max-width: 900px;
-  margin: 0 auto;
-  .donate-btn {
-    float: right;
-    width: 100px;
-    margin: 20px;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    height: 35px;
-    background-color: #516B38;
-    &:hover {
-      background-color: #3D502A;
-    }
-    a {
-      color: white;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 14px;
-      line-height: 35px;
-      margin-left: 20px;
-    }
-  }
+  margin: 200px auto;
   .container {
     clear: both;
     margin-top: 83px;
     text-align: center;
-    color: white;
+    color: $black;
     .logo {
       margin-bottom: 70px;
     }
@@ -170,7 +118,7 @@ body {
       border: none;
       border-radius: 4px;
       color: white;
-      height: 50px;
+      // height: 50px;
       background-color: #516B38;
       &:hover {
         background-color: #3D502A;
