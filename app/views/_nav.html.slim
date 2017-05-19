@@ -8,7 +8,7 @@ nav
       div
         a href='/donate' Donate
       div
-        a onclick='BTTT.toggleContactForm()' href='/contact' Contact
+        =mail_to 'hello@biggerthanthetrail.com', 'Contact'
     span class="navtoggle" onclick="BTTT.toggleMobileMenu()"
       | Menu
       span
