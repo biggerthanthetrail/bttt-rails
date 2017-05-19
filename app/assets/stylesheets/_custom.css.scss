@@ -3,8 +3,88 @@
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
   font-size: 24px;
   line-height: 30px;
   letter-spacing: 2px;
   text-transform: uppercase;
+  @media only screen and(max-width: $bp-medium) {
+    font-size: 16px;
+  }
+}
+
+.wide-container {
+  @include grid-container;
+  .left-column {
+    @include grid-column(6);
+    h1 {
+      font-family: Lato, serif;
+      font-size: 64px;
+      font-weight: bold;
+    }
+    img {
+      max-width: 300px;
+      display: inline-block;
+      float: left;
+    }
+    p.sign {
+      font-family: 'Nathaniel';
+      font-size: 44px;
+      margin-left: 20px;
+      margin-top: 85px;
+      float: left;
+    }
+    @media only screen and(max-width: 1000px) {
+      h1 {
+        font-size: 40px;
+      }
+      img {
+        max-width: 200px;
+      }
+      p.sign {
+        font-size: 30px;
+      }
+    }
+    @media only screen and(max-width: $bp-medium) {
+      @include grid-column(12);
+      h1 {
+        text-align: center;
+        font-size: 48px;
+      }
+      img {
+        float: initial;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 250px;
+
+      }
+      p.sign {
+        float: initial;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 34px;
+      }
+    }
+  }
+  .right-column {
+    @include grid-column(6);
+     .main-message {
+       p {
+        font-family: Lato, serif;
+        font-size: 24px;
+        line-height: 29px;
+        @media only screen and(max-width: 1000px) {
+          font-size: 22px;
+          line-height: 25px;
+        }
+      }
+    }
+    @media only screen and(max-width: $bp-medium) {
+      @include grid-column(12);
+      margin-top: 25px;
+      text-align: left;
+    }
+  }
 }

@@ -1,7 +1,6 @@
 .social-links {
-  display: none;
-  @include position(absolute, null null 50px);
   max-width: 300px;
+  padding-bottom: 25px;
   margin-left: calc(50% - 150px);
   margin-right: auto;
   a {
