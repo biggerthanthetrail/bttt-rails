@@ -88,3 +88,25 @@
     }
   }
 }
+
+//Support//
+
+.cta {
+  padding: 20px;
+  text-align: center;
+  font-family: Lato, serif;
+  font-size: 65px;
+  text-transform: uppercase;
+  @media only screen and(max-width: $bp-medium) {
+    font-size: 36px;
+  }
+}
+
+.skinny {
+  @include grid-column(10);
+  @include grid-shift(1);
+  font-size: 26px;
+  line-height: 32px;
+}
+
+
