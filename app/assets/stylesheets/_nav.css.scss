@@ -15,7 +15,7 @@ nav {
     display: none;
     opacity: 0;
     transition: opacity .25s linear .1s;
-    @media screen and(min-width: $bp-medium) {
+    @media only screen and(min-width: $bp-medium) {
       width: initial;
       @include position(absolute, 58px null null null);
     }
@@ -29,7 +29,7 @@ nav {
         font-weight: bold;
       }
     }
-    @media screen and(min-width: $bp-medium) {
+    @media only screen and(min-width: $bp-medium) {
       opacity: 1;
     }
   }
@@ -107,7 +107,7 @@ nav {
     }
   }
   &:not(.open) {
-    @media screen and(min-width: $bp-medium) {
+    @media only screen and(min-width: $bp-medium) {
       $nav-height: 155px;
       @include position(absolute, 15px null null 50%);
       transform: translate(-50%,0);
@@ -150,7 +150,7 @@ nav {
       .logo-left {
         @include position(absolute, calc(50% - 52px) null null 12px);
         z-index: 3;
-        @media screen and(min-width: $bp-large) {
+        @media only screen and(min-width: $bp-large) {
           @include position(absolute, calc(50% - 52px) null null 12px);
         }
         a {
@@ -191,7 +191,7 @@ nav {
         }
       }
     }
-    @media screen and(min-width: $bp-large) {
+    @media only screen and(min-width: $bp-large) {
       $nav-height: 155px;
       height: $nav-height;
       .logo-left a {
@@ -206,7 +206,7 @@ nav {
         }
       }
     }
-    @media screen and(min-width: $bp-x3-large) {
+    @media only screen and(min-width: $bp-x3-large) {
       $nav-height: 155px;
       height: $nav-height;
       .logo-left a {
