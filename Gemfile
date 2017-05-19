@@ -27,6 +27,7 @@ gem 'bitters'
 gem 'high_voltage', '~> 3.0.0'
 gem 'slim'
 gem 'inline_svg'
+gem 'stripe'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

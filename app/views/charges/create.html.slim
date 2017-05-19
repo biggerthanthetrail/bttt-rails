@@ -2,7 +2,8 @@ header.medium.relative.bg.secondary
   span.bh-image.luminosity
   .content.text.align.center.color.white.cf.v-center
     h1.main-header
-      | Thank you for your donation
+      | Thank you! Your donation of #{number_to_currency(@amount * 0.01)}
+        has been received.
 .outer-container
   .container
     h1.cta

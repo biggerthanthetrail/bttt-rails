@@ -1,4 +1,4 @@
-.main-header {
+.main-header{
   font-family: 'Lato', Serif;
   max-width: 500px;
   margin-left: auto;
@@ -121,7 +121,7 @@
   @include grid-column(10);
   @include grid-shift(1);
   margin-top: 20px;
-  input.button {
+  .button {
     border-radius: 4px;
     color: white;
     // height: 50px;
