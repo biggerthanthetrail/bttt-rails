@@ -70,21 +70,22 @@
   }
   .right-column {
     @include grid-column(6);
-     .main-message {
-       p {
-        font-family: Lato, serif;
-        font-size: 24px;
-        line-height: 29px;
-        @media only screen and(max-width: 1000px) {
-          font-size: 22px;
-          line-height: 25px;
-        }
-      }
-    }
     @media only screen and(max-width: $bp-medium) {
       @include grid-column(12);
       margin-top: 25px;
       text-align: left;
+    }
+  }
+}
+
+.main-message {
+  p {
+    font-family: Lato, serif;
+    font-size: 24px;
+    line-height: 29px;
+    @media only screen and(max-width: 1000px) {
+      font-size: 22px;
+      line-height: 25px;
     }
   }
 }
@@ -105,8 +106,30 @@
 .skinny {
   @include grid-column(10);
   @include grid-shift(1);
-  font-size: 26px;
-  line-height: 32px;
+  p {
+    font-family: Lato, serif;
+    font-size: 26px;
+    line-height: 32px;
+    @media only screen and(max-width: $bp-medium) {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+}
+
+.support-form {
+  @include grid-column(10);
+  @include grid-shift(1);
+  margin-top: 20px;
+  input.button {
+    border-radius: 4px;
+    color: white;
+    // height: 50px;
+    background-color: #516B38;
+    &:hover {
+      background-color: #3D502A;
+    }
+  }
 }
 
 
