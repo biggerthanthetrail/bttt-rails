@@ -1,0 +1,80 @@
+header {
+  min-height: 568px;
+  max-height: 750px;
+  height: 106vh;
+  position: relative;
+  // background-image: url(/images/wave-secondary.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center bottom;
+  overflow: hidden;
+  h1,p {
+    opacity: 1;
+    transition: opacity .25s linear;
+  }
+  p {
+    font-size: $font-size-base;
+    max-width: 630px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1;
+    @media screen and(min-width: $bp-medium) {
+      font-size: $font-size-large;
+    }
+  }
+  .blog-hero {
+    h1 {
+      margin-bottom: 20px;
+    }
+  }
+  &.medium {
+    max-height: 815px;
+  }
+  &.large {
+    max-height: 915px;
+    h1 {
+      max-width: 915px;
+      font-size: $font-size-large;
+      line-height: 1.2;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 1;
+      @media screen and(min-width: 389px) {
+        font-size: $font-size-x-large;
+      }
+      @media screen and(min-width: 470px) {
+        font-size: $font-size-x2-large;
+      }
+      @media screen and(min-width: 551px) {
+        font-size: $font-size-x3-large;
+      }
+      @media screen and(min-width: 632px) {
+        font-size: $font-size-x4-large;
+      }
+      @media screen and(min-width: 712px) {
+        font-size: $font-size-x5-large;
+      }
+      @media screen and(min-width: 793px) {
+        font-size: $font-size-huge;
+      }
+    }
+  }
+  .header-wave {
+    width: 105%;
+    max-width: none;
+    transform: scale(-1,1);
+    @include position(absolute, null null -2px -9px);
+    z-index: 1;
+    @media screen and(min-width: $bp-medium) {
+      @include position(absolute, null null -3px -9px);
+    }
+  }
+}
+
+.nav-is-open {
+  header {
+    h1,p {
+      opacity: 0;
+    }
+  }
+}

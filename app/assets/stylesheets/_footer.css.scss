@@ -1,0 +1,22 @@
+.social-links {
+  @include position(absolute, null null 50px);
+  max-width: 300px;
+  margin-left: calc(50% - 150px);
+  margin-right: auto;
+  a {
+    padding: 20px 20px 0 20px;
+    text-decoration: none;
+    svg {
+      path {
+        fill: black;
+      }
+    }
+    &:hover {
+      svg {
+        path {
+          fill: #CCCCCC;
+        }
+      }
+    }
+  }
+}

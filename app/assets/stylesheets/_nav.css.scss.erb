@@ -1,0 +1,227 @@
+nav {
+  @include position(absolute, 0 null null null);
+  width: 100%;
+  max-width: 1205px !important;
+  min-height: 100px;
+  background-color: rgba(65,65,65,0);
+  z-index: 10;
+  overflow: hidden;
+  transition: background-color .25s linear, min-height 0s linear .3s, max-height 0s linear .3s;
+  .nav-links {
+    @include position(absolute, 38% null null null);
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    display: none;
+    opacity: 0;
+    transition: opacity .25s linear .1s;
+    @media screen and(min-width: $bp-medium) {
+      width: initial;
+      @include position(absolute, 58px null null null);
+    }
+    & > div {
+      a {
+        color: $black;
+        text-decoration: none;
+        display: block;
+        font-size: $font-size-large;
+        padding: 10px;
+        font-weight: bold;
+      }
+    }
+    @media screen and(min-width: $bp-medium) {
+      opacity: 1;
+    }
+  }
+  .logo-left {
+    @include position(absolute, 12px null null 12px);
+    a {
+      background-image: url('/assets/images/bttt-black-logo.svg');
+      background-size: 100%;
+      background-position: left top;
+      background-repeat: no-repeat;
+      text-indent: -9000px;
+      width: 120px;
+      height: 105px;
+      padding: 0;
+      display: block;
+    }
+  }
+  .navtoggle {
+    @include position(absolute, 0 0 null null);
+    width: 70px;
+    font-size: 12px;
+    color: $black;
+    padding-top: 26px;
+    padding-bottom: 10px;
+    span {
+      position: relative;
+      width: 15px;
+      height: 12px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+    i {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: $black;
+      @include position(absolute, 0 null null 0);
+      transition: all .3s linear;
+      &:nth-child(2) {
+        margin-top: 4px;
+        width: 10px;
+      }
+      &:last-child {
+        margin-top: 8px;
+        width: 13px;
+      }
+    }
+  }
+  &.open {
+    @include position(fixed, 0 0 0 0);
+    /* width: 100%; */
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    transition: background-color .25s linear, min-height 0s linear 0s, max-height 0s linear 0s;
+    background-color: rgba(65,65,65,.8);
+    .nav-links {
+      display: block;
+      opacity: 1;
+    }
+    .navtoggle {
+      i {
+        &:first-child {
+          transform: translate(0,4px) rotate(45deg);
+        }
+        &:nth-child(2) {
+          display: none;
+        }
+        &:last-child {
+          width: 100%;
+          transform: translate(0,-4px) rotate(-45deg);
+        }
+      }
+    }
+  }
+  &:not(.open) {
+    @media screen and(min-width: $bp-medium) {
+      $nav-height: 155px;
+      @include position(absolute, 15px null null 50%);
+      transform: translate(-50%,0);
+      height: $nav-height;
+      /* width: 100%; */
+      max-width: 1440px;
+      overflow: visible;
+      .navtoggle {
+        display: none;
+      }
+      .nav-links {
+        @include position(absolute, 0 0 auto auto);
+        float: right;
+        display: block;
+        height: $nav-height;
+        padding-right: 12px;
+        transform: none;
+        white-space: nowrap;
+        @include clearfix;
+        & > div {
+          display: inline-block;
+          text-align: right;
+          padding-left: 1%;
+          position: relative;
+          a {
+            padding: 0 10px;
+            line-height: $nav-height;
+            font-size: $font-size-x-small;
+            font-weight: 300;
+            opacity: 1;
+            transition: opacity .25s linear;
+            // Possible fix to some weird shifting and bluring when fonts land on sub pixels
+            // http://stackoverflow.com/questions/15464055/css-transition-effect-makes-image-blurry-moves-image-1px-in-chrome
+            backface-visibility: hidden;
+            transform: translateZ(0) scale(1.0, 1.0);
+            // end fix
+          }
+        }
+      }
+      .logo-left {
+        @include position(absolute, calc(50% - 52px) null null 12px);
+        z-index: 3;
+        @media screen and(min-width: $bp-large) {
+          @include position(absolute, calc(50% - 52px) null null 12px);
+        }
+        a {
+          background-image: url('/images/bttt-black-logo.svg');
+          background-size: 100%;
+          background-position: left top;
+          background-repeat: no-repeat;
+          text-indent: -9000px;
+          /* width: $nav-height; */
+          /* height: $nav-height; */
+          padding: 0;
+          opacity: 1;
+          transition: opacity .25s linear;
+          // Possible fix to some weird shifting and bluring when fonts land on sub pixels
+          // http://stackoverflow.com/questions/15464055/css-transition-effect-makes-image-blurry-moves-image-1px-in-chrome
+          backface-visibility: hidden;
+          transform: translateZ(0) scale(1.0, 1.0);
+          // end fix
+        }
+      }
+      &:hover {
+        .nav-links {
+          & > div {
+            & > a {
+              opacity: .45;
+              &:hover {
+                opacity: 1;
+                color: $black;
+              }
+            }
+          }
+        }
+        .logo-left a {
+          opacity: .45;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    @media screen and(min-width: $bp-large) {
+      $nav-height: 155px;
+      height: $nav-height;
+      .logo-left a {
+        width: 163px;
+        height: 105px;
+      }
+      .nav-links {
+        $nav-height: 155px;
+        height: $nav-height;
+        & > div a {
+          line-height: $nav-height;
+        }
+      }
+    }
+    @media screen and(min-width: $bp-x3-large) {
+      $nav-height: 155px;
+      height: $nav-height;
+      .logo-left a {
+        width: 163px;
+        height: 105px;
+        padding: 0;
+      }
+      .nav-links {
+        height: $nav-height;
+        & > div a {
+          font-size: $font-size-small;
+          line-height: $nav-height;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,423 @@
+// Text
+//-----------------------------------------------------------------------------
+
+.text {
+  &.serif {
+    font-family: $secondary-font-family;
+  }
+  &.sans {
+    font-family: $primary-font-family;
+  }
+  &.align {
+    &.left {
+      text-align: left;
+    }
+    &.center {
+      text-align: center;
+    }
+    &.right {
+      text-align: right;
+    }
+  }
+  &.color {
+    &.white {
+      color: $white;
+      a {
+        color: $black-base;
+        &:not(.btn):hover {
+          color: $grey-dark;
+        }
+      }
+      a.link {
+        color: $white;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+    &.primary {
+      color: $primary-color;
+    }
+    &.secondary {
+      color: $secondary-color;
+    }
+    &.tertiary {
+      color: $tertiary-color;
+    }
+  }
+
+  &.size {
+    &.x3small {
+      font-size: $font-size-x3-small;
+    }
+    &.x2small {
+      font-size: $font-size-x2-small;
+    }
+    &.xsmall {
+      font-size: $font-size-x-small
+    }
+    &.small {
+      font-size: $font-size-small
+    }
+    &.large {
+      font-size: $font-size-large;
+    }
+    &.xlarge {
+      font-size: $font-size-x-large;
+    }
+    &.x2large {
+      font-size: $font-size-x2-large;
+    }
+    &.x3large {
+      font-size: $font-size-x3-large;
+    }
+  }
+  &.space {
+    &.xtight {
+      letter-spacing: -5px;
+    }
+    &.tight {
+      letter-spacing: -1px;
+    }
+    &.none {
+      letter-spacing: 0;
+    }
+    &.spread {
+      letter-spacing: 1px;
+    }
+    &.xspread {
+      letter-spacing: 5px;
+    }
+  }
+  &.weight {
+    &.xlight {
+      font-weight: 100;
+    }
+    &.light {
+      font-weight: 300;
+    }
+    &.normal {
+      font-weight: 400;
+    }
+    &.bold {
+      font-weight: 700;
+    }
+    &.xbold {
+      font-weight: 800;
+    }
+  }
+  &.caps {
+    text-transform: uppercase;
+  }
+  &.italics {
+    font-style: italic;
+  }
+}
+
+// Display
+//-----------------------------------------------------------------------------
+
+@mixin hw-display() {
+
+  .thinner-box {
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and(min-width: $bp-medium) {
+      max-width: none;
+      @include span-columns(2);
+      @include shift(5);
+    }
+    @media screen and(min-width: $bp-x-large) {
+      @include span-columns(4);
+      @include shift(4);
+    }
+  }
+
+  .thin-box {
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and(min-width: $bp-medium) {
+      max-width: none;
+      @include span-columns(4);
+      @include shift(4);
+    }
+    @media screen and(min-width: $bp-x-large) {
+      @include span-columns(6);
+      @include shift(3);
+    }
+  }
+
+  .wide-box {
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and(min-width: $bp-medium) {
+      max-width: 90%;
+    }
+    @media screen and(min-width: $bp-large) {
+      max-width: none;
+      @include span-columns(8);
+      @include shift(2);
+    }
+  }
+
+  .wider-box {
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and(min-width: $bp-medium) {
+      max-width: none;
+    }
+    @media screen and(min-width: $bp-x-large) {
+      @include span-columns(10);
+      @include shift(1);
+    }
+  }
+
+  .full-box {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and(min-width: $bp-x-large) {
+      @include span-columns(12);
+    }
+  }
+
+
+
+	// Display loop
+	@for $index from 1 through 10 {
+		$class-name     	: ($index * 1);
+		// Opacity
+		.opacity-#{$class-name} {
+      opacity: $index/10;
+		}
+	}
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .aspect-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// Omega Reset
+// ------------------------------------------------------------
+
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}
+
+// Space
+//-----------------------------------------------------------------------------
+
+$spacing-limit          : 10 !default;
+
+@mixin hw-spacing() {
+	.spacing-no {
+		@include padding(0);
+    @include margin(0);
+	}
+	.pad-no {
+		@include padding(0);
+	}
+  .pad-small {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    @media screen and(min-width: $bp-small) {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    @media screen and(min-width: $bp-medium) {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    @media screen and(min-width: $bp-large) {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+    @media screen and(min-width: $bp-x-large) {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+  }
+  .pad-medium {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    @media screen and(min-width: $bp-small) {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    @media screen and(min-width: $bp-medium) {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+    @media screen and(min-width: $bp-large) {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+    @media screen and(min-width: $bp-x-large) {
+      padding-top: 110px;
+      padding-bottom: 110px;
+    }
+  }
+  .pad {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @media screen and(min-width: $bp-small) {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    @media screen and(min-width: $bp-medium) {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    @media screen and(min-width: $bp-large) {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    @media screen and(min-width: $bp-x-large) {
+      padding-top: 120px;
+      padding-bottom: 120px;
+    }
+  }
+  .pad-r-sm {
+    padding-right: 10px;
+  }
+  .pad-t-sm {
+    padding-top: 35px;
+  }
+  .pad-b-sm {
+    padding-bottom: 35px;
+  }
+  .pad-b-med {
+    padding-bottom: 50px;
+  }
+  .pad-no-t {
+    padding-top: 0;
+  }
+  .pad-no-b {
+    padding-bottom: 0;
+  }
+	.mgn-no {
+		@include margin(0);
+	}
+  .mgn-no-t {
+    margin-top: 0;
+  }
+  .mgn-no-b {
+    margin-bottom: 0;
+  }
+  .mgn-l-top {
+    margin-top: 150px;
+  }
+  .mgn-l-bot {
+    margin-bottom: 100px;
+  }
+}
+
+// Position
+//-----------------------------------------------------------------------------
+
+.relative {
+  position: relative;
+}
+
+.float {
+  &.left {
+    float: left;
+  }
+  &.right {
+    float: right;
+  }
+}
+
+.v-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cf {
+  @include clearfix;
+}
+
+// Backgrounds
+//-----------------------------------------------------------------------------
+
+.bg {
+  &.primary {
+    background-color: $primary-color;
+  }
+  &.primary-dark {
+    background-color: $primary-color-dark;
+  }
+  &.secondary {
+    background-color: $secondary-color;
+  }
+  &.grey {
+    background-color: $grey-light;
+  }
+}
+
+.full-image {
+  @include position(absolute, 0 0 0 0);
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bh-image {
+  @include position(absolute, -50px 0 0 0);
+  max-height: 865px;
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.luminosity {
+  background-blend-mode: saturation;
+  background-image: linear-gradient(to bottom, black 0%,white 50%);
+  opacity: .19;
+}
+
+// Visible only on mobile
+//-----------------------------------------------------------------------------------
+
+.vis-mobile {
+  display: block;
+  @media screen and(min-width: $bp-medium) {
+    display: none;
+  }
+}
+
+.hide-mobile {
+  display: none;
+  @media screen and(min-width: $bp-medium) {
+    display: block;
+  }
+}
+
+.hide-small-mobile {
+  display: none;
+  @media screen and(min-width: 500px) {
+    display: block;
+  }
+}
