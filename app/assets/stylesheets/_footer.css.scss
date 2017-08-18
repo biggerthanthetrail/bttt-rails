@@ -1,20 +1,28 @@
-.social-links {
-  max-width: 300px;
-  padding-bottom: 25px;
-  margin-left: calc(50% - 150px);
-  margin-right: auto;
-  a {
-    padding: 20px 20px 0 20px;
-    text-decoration: none;
-    svg {
-      path {
-        fill: black;
-      }
+footer {
+  position: relative;
+  .social-links {
+    max-width: 300px;
+    position: absolute;
+    bottom: 20px;
+    margin-left: calc(50% - 150px);
+    margin-right: auto;
+    margin-top: 30px;
+    @media only screen and (max-width: 600px) {
+      margin-top: 30px;
     }
-    &:hover {
+    a {
+      padding: 20px 20px 0 20px;
+      text-decoration: none;
       svg {
         path {
-          fill: #CCCCCC;
+          fill: black;
+        }
+      }
+      &:hover {
+        svg {
+          path {
+            fill: #CCCCCC;
+          }
         }
       }
     }
