@@ -60,54 +60,58 @@
 <script src="https://checkout.stripe.com/checkout.js"></script>
 
 <script>
-var handler = StripeCheckout.configure({
-  key: '<%= Rails.configuration.stripe[:publishable_key] %>',
-  locale: 'auto',
-  name: 'Bigger Than The Trail',
-  description: 'One-time donation',
-  token: function(token) {
-    $('input#stripeToken').val(token.id);
-    $('form').submit();
-  }
-});
+  $(document).ready(function() {
+    $("input#amount").keydown(function(e) {
+      var oldvalue=$(this).val();
+      var field=this;
+      setTimeout(function () {
+          if(field.value.indexOf('$') !== 0) {
+              $(field).val(oldvalue);
+          }
+      }, 1);
+    });
 
-$('#donateButton').on('click', function(e) {
-  e.preventDefault();
+    $('#donateButton').on('click', function(e) {
+      e.preventDefault();
 
-  $('#error_explanation').html('');
+      var handler = StripeCheckout.configure({
+        key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+        locale: 'auto',
+        name: 'Bigger Than The Trail',
+        description: 'One-time donation',
+        token: function(token) {
+          $('input#stripeToken').val(token.id);
+          $('form').submit();
+        }
+      });
 
-  var amount = $('input#amount').val();
-  amount = amount.replace(/\$/g, '').replace(/\,/g, '')
+      $('#error_explanation').html('');
 
-  amount = parseFloat(amount);
+      var amount = $('input#amount').val();
+      amount = amount.replace(/\$/g, '').replace(/\,/g, '')
 
-  if (isNaN(amount)) {
-    $('#error_explanation').html('<p>Please enter a valid amount in USD ($).</p>');
-  }
-  else if (amount < 5.00) {
-    $('#error_explanation').html('<p>Donation amount must be at least $5.</p>');
-  }
-  else {
-    amount = amount * 100; // Needs to be an integer!
-    handler.open({
-      amount: Math.round(amount)
-    })
-  }
-});
+      amount = parseFloat(amount);
 
-// Close Checkout on page navigation
-$(window).on('popstate', function() {
-  handler.close();
-});
-
-$("input#amount").keydown(function(e) {
-  var oldvalue=$(this).val();
-  var field=this;
-  setTimeout(function () {
-      if(field.value.indexOf('$') !== 0) {
-          $(field).val(oldvalue);
+      if (isNaN(amount)) {
+        $('#error_explanation').html('<p>Please enter a valid amount in USD ($).</p>');
       }
-  }, 1);
-});
+      else if (amount < 5.00) {
+        $('#error_explanation').html('<p>Donation amount must be at least $5.</p>');
+      }
+      else {
+        amount = amount * 100; // Needs to be an integer!
+        handler.open({
+          amount: Math.round(amount)
+        })
+      }
+    });
+
+    // Close Checkout on page navigation
+    $(window).on('popstate', function() {
+      handler.close();
+    });
+  });
+
+
 </script>
 
