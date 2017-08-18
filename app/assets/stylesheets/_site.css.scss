@@ -8,7 +8,7 @@ body {
   min-height: 100vh;
   flex-direction: column;
   font-family: 'Lato', Serif;
-  margin: 0 0 100px;
+  margin: 0 0 10px;
 }
 
 .site-content {
@@ -38,9 +38,11 @@ footer {
 }
 
 .outer-container {
-  // text-shadow: 4px 4px 14px rgba(0,0,0,0.50);
   max-width: 1205px;
   margin: 115px auto;
+  @media only screen and (max-width: 600px) {
+    margin: 45px auto;
+  }
   .container {
     clear: both;
     margin-top: 83px;
@@ -115,7 +117,6 @@ footer {
       @media only screen and (max-width: 600px) {
         width: 100% !important;
       }
-
     }
   }
   .input-btn {

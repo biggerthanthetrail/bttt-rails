@@ -5,7 +5,7 @@
   </div>
 </header>
 <div class='outer-container'>
-  <div class'wide-container'>
+  <div class='wide-container'>
     <h1 class='cta'>Providing hope</h1>
     <div class='main-message skinny'>
       <p>
@@ -43,7 +43,7 @@
         <article>
           <p> Please consider donating today.</p>
           <%= label_tag(:amount, 'Donation Amount:') %>
-          <%= text_field_tag(:amount, nil, placeholder: 'Enter any value here') %>
+          <%= text_field_tag(:amount, '$') %>
         </article>
         <article>
           <%= hidden_field_tag(:stripeToken) %>
@@ -98,6 +98,16 @@ $('#donateButton').on('click', function(e) {
 // Close Checkout on page navigation
 $(window).on('popstate', function() {
   handler.close();
+});
+
+$("input#amount").keydown(function(e) {
+  var oldvalue=$(this).val();
+  var field=this;
+  setTimeout(function () {
+      if(field.value.indexOf('$') !== 0) {
+          $(field).val(oldvalue);
+      }
+  }, 1);
 });
 </script>
 
