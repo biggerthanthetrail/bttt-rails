@@ -29,7 +29,7 @@ gem 'high_voltage', '~> 3.0.0'
 gem 'slim'
 gem 'inline_svg'
 gem 'stripe'
-
+gem 'puma'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -55,5 +55,4 @@ end
 
 group :production do
   gem 'pg'
-  gem 'unicorn'
 end
