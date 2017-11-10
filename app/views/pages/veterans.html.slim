@@ -1,0 +1,50 @@
+header.medium.relative.bg.secondary
+  span.bh-image.luminosity
+  .content.text.align.center.color.white.cf.v-center
+    h1.main-header
+      | Excited to support those who served
+.outer-container
+  .wide-container
+    .left-column
+      h1
+        | Together we can shine a brighter light on mental health
+        .large-logo = image_tag('4th-logo.png')
+
+    .right-column
+      .main-message
+        p
+          | We are excited to partner with 4th HOOAH WI to offer veterans
+            a positive outlet to manage their mental health. If you are
+            a veteran, we want to share our joy of trail running with you. We
+            know first hand the many benefits of trail running and the effects it
+            can have on one's mental health. This is why we want to find a way to
+            get you out on the trails.
+        p
+          | Whether you are a seasoned runner or ready to try something new,
+            Bigger Than The Trail wants to offer you a free entry into a trail
+            race. Trail running isn't just about the race, but more about the
+            community and friendships built along the way. We want to get to know
+            you and join you in your training by offering opportunities for group
+            runs. Group runs allow you to challenge yourself, grow, and meet
+            others all while finding joy in running.
+
+        p
+          | If you are interested in learning more or want to know other ways
+            that Bigger Than The Trail can come alongside you and help, please
+            fill out the form below. However big or small your challenges may be,
+            we are here to support you. So let’s take the first steps together.
+
+    .support-form
+      <form action="https://formspree.io/tommy@biggerthanthetrail.com" method="POST">
+          <label>Name</label>
+          <input type="text" name="name">
+          <label>Email</label>
+          <input type="email" name="_replyto">
+          <label>Military Branch</label>
+          <input type="text" name="military_branch">
+          <label>Introduce yourself</label>
+          <textarea type="text" class='tall' name="info"></textarea>
+          <input type="hidden" name="_next" value="//bttt.run/next-steps" />
+          <input class='button' type="submit" value="Send">
+          <input type="text" name="_gotcha" style="display:none" />
+      </form>
