@@ -97,7 +97,41 @@
     }
   }
 }
+// block party//
 
+.outer-container.small-top-margin {
+  margin-top: 65px;
+}
+
+.break {
+  border-top: 1px solid black;
+  widows: 100%;
+}
+
+.question {
+  text-decoration: underline;
+  font-weight: bold;
+  font-family: Lato, serif;
+  font-size: 24px;
+  line-height: 29px;
+  @media only screen and(max-width: 1000px) {
+    font-size: 20px;
+    line-height: 23px;
+  }
+}
+
+.answer {
+  font-weight: 400;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-family: Lato, serif;
+  font-size: 20px;
+  line-height: 25px;
+  @media only screen and(max-width: 1000px) {
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
 //Support//
 
 .cta {
